@@ -2,13 +2,14 @@ import { integerPropType } from "@mui/utils";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
+import Modal from 'react-modal'
 export default function EditUser() {
   let navigate = useNavigate();
+  
 
   const { id } = useParams();
 
-
+  
   const [user, setUser] = useState({
     jobCode: "",
     customer: "",
@@ -50,9 +51,11 @@ export default function EditUser() {
   
 
   return (
+    
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+          <Modal isOpen={true}>
           <h2 className="text-center m-4">Edit User</h2>
 
           <form onSubmit={(e) => onSubmit(e)}>
@@ -202,7 +205,11 @@ export default function EditUser() {
               Cancel
             </Link>
           </form>
+          </Modal>
+          
         </div>
+        
+
       </div>
     </div>
   );
